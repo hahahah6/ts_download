@@ -2,7 +2,7 @@
 Author: hahahah6 tensorrt@163.com
 Date: 2025-06-15 21:55:42
 LastEditors: hahahah6 tensorrt@163.com
-LastEditTime: 2025-06-15 23:07:58
+LastEditTime: 2025-06-16 11:50:39
 FilePath: \ts_download\run.py
 Description: This script downloads .ts files from a given m3u8 playlist URL, handles AES encryption if present, merges the segments into a single .ts file, and converts it to MP4 format using ffmpeg.
 
@@ -149,11 +149,11 @@ def convert_to_mp4():
 
 if __name__ == "__main__":
     
-    # create_output_dir()
+    create_output_dir()
 
-    # print("[*] Starting concurrent download of .ts files...")
-    # with ThreadPoolExecutor(max_workers=max_workers) as executor:
-    #     list(tqdm(executor.map(download_with_retry, enumerate(ts_urls)), total=len(ts_urls)))
+    print("[*] Starting concurrent download of .ts files...")
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        list(tqdm(executor.map(download_with_retry, enumerate(ts_urls)), total=len(ts_urls)))
 
-    # merge_ts_files()
+    merge_ts_files()
     convert_to_mp4()
